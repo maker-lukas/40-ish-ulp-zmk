@@ -1,5 +1,4 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include "ulp-layouts.dtsi"
 
 / {
     chosen {
@@ -10,6 +9,14 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         wakeup-source;
+    };
+
+    default_layout: default_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Default";
+        transform = <&default_transform>;
+        kscan = <&kscan>;
+#include "ulp-layouts.dtsi"
     };
 
     default_transform: default_transform {
